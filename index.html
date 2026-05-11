@@ -17,6 +17,21 @@
   <title>Retro Arcane — Independent Game Studio</title>
   <!-- title: what shows up in the browser tab -->
 
+  <!-- ── FAVICON ──
+       The tiny icon that appears in the browser tab next to the page title.
+       When Bria updates the logo, swap logo_.png for a square 512x512 version. -->
+  <link rel="icon" href="logo_.png" />
+
+  <!-- ── OPEN GRAPH META TAGS ──
+       These control how the site looks when shared on Discord, Twitter, iMessage, etc.
+       Without these, shared links show up as blank or generic previews.
+       og:image is what shows as the thumbnail — using the logo for now. -->
+  <meta property="og:title" content="Retro Arcane — Independent Game Studio" />
+  <meta property="og:description" content="Big heart. Small studio. Real magic." />
+  <meta property="og:image" content="https://retroarcane.com/logo_.png" />
+  <meta property="og:url" content="https://retroarcane.com" />
+  <meta property="og:type" content="website" />
+
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
   <!-- Loads two fonts from Google:
        - "Press Start 2P" = the pixel/retro font used for titles and labels
@@ -408,6 +423,11 @@
       font-size: 0.9rem;
       color: var(--cream-dark);
     }
+
+    /* ── CARD LINK ──
+       Used for "▶ Explore the World" and any future in-card links.
+       display: inline-block lets margin-top work on it.
+       To add another card link later, just use class="card-link" on any <a> tag. */
     .card-link {
       display: inline-block;
       margin-top: 1.25rem;
@@ -417,11 +437,11 @@
       text-decoration: none;
       letter-spacing: 0.05em;
       transition: color 0.2s;
-}
+    }
 
-.card-link:hover {
-  color: var(--gold-light);
-}
+    .card-link:hover {
+      color: var(--gold-light);        /* brightens on hover */
+    }
 
     /* The "More games coming soon" placeholder card — dashed border, centered content */
     .pipeline-card {
@@ -512,6 +532,28 @@
       opacity: 0.6;
     }
 
+    /* ── SOCIAL LINKS ROW ──
+       Sits in the footer. flex + gap spaces the links out evenly.
+       To add more socials later, just add another <a class="footer-social"> in the HTML. */
+    .footer-socials {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .footer-social {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-social:hover {
+      color: var(--gold-light);
+    }
+
     /* ── SPARKLE DECORATION ── */
     .sparkle {
       display: inline-block;
@@ -534,6 +576,7 @@
       .nav-links a { font-size: 0.45rem; }
       section { padding: 4rem 1.25rem; }
       .about-card { padding: 1.5rem; }
+      .footer-socials { gap: 1.25rem; }  /* tightens social links on mobile */
     }
   </style>
 </head>
@@ -544,6 +587,7 @@
        Structure: NAV → HERO → ABOUT → GAMES → CONTACT → FOOTER
        ============================================================ -->
 
+
   <!-- NAV ─────────────────────────────────────────────────────
        Fixed bar at top of page. Stays in view while scrolling.
        Left: logo (links back to hero). Right: section links. -->
@@ -552,7 +596,7 @@
     <!-- <br> inside text = line break, stacks RETRO on top of ARCANE -->
 
     <ul class="nav-links">
-      <!-- Each <li> is a list item. Each <a> is a link. 
+      <!-- Each <li> is a list item. Each <a> is a link.
            href="#about" scrolls to the element with id="about" -->
       <li><a href="#about">About</a></li>
       <li><a href="#games">Games</a></li>
@@ -628,7 +672,7 @@
   <!-- GAMES ────────────────────────────────────────────────────
        Game cards in a responsive grid.
        Each card follows the same structure:
-         status badge → title → genre → description -->
+         status badge → title → genre → description → (optional link) -->
   <section id="games">
     <h2 class="section-title">Games</h2>
 
@@ -667,8 +711,12 @@
 
         <p class="game-card-genre">Action-Adventure · Narrative RPG</p>
 
-        <p>Sail a moonlit alien sea, forge bonds between three unlikely species, 
+        <p>Sail a moonlit alien sea, forge bonds between three unlikely species,
           and stop a kaiju war before it ends a civilization. LOTR meets the open ocean — on a world where humans became gods.</p>
+
+        <!-- card-link: in-card link styled in gold pixel font.
+             target="_blank" opens in a new tab so visitor doesn't leave the site.
+             To add more links to other cards later, copy this line and update href + text. -->
         <a href="https://www.youtube.com/@oceanblacktv5338" target="_blank" class="card-link">▶ Explore the World</a>
 
       </div>
@@ -693,7 +741,8 @@
 
 
   <!-- CONTACT ──────────────────────────────────────────────────
-       Simple centered section with a mailto link styled as a button. -->
+       Simple centered section with a mailto link styled as a button.
+       href and visible text must always match — both point to hello@retroarcane.com -->
   <section id="contact">
     <h2 class="section-title">Contact</h2>
 
@@ -710,12 +759,24 @@
 
   <!-- FOOTER ───────────────────────────────────────────────────
        <footer> is a semantic HTML element (like <nav> and <section>).
-       It tells browsers/search engines "this is the footer area." -->
+       It tells browsers/search engines "this is the footer area."
+       Contains: studio name, social links, copyright. -->
   <footer>
     <div class="footer-inner">
+
       <p class="footer-name">RETRO ARCANE LLC</p>
+
+      <!-- SOCIAL LINKS ROW ──
+           To add more socials later (TikTok, X, etc.), copy one <a> and update href + text.
+           Keep target="_blank" so links open in a new tab. -->
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+      </div>
+
       <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
       <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
+
     </div>
   </footer>
   <!-- END FOOTER -->
