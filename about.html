@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Retro Arcane</title>
+  <link rel="icon" href="logo_.png" />
+
+  <meta property="og:title" content="About — Retro Arcane" />
+  <meta property="og:description" content="Female-owned, indie game studio based in Dallas, TX." />
+  <meta property="og:image" content="https://retroarcane.com/logo_.png" />
+  <meta property="og:url" content="https://retroarcane.com/about.html" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal-deep:    #0d2f3f;
+      --teal-mid:     #1a4a5c;
+      --purple-mid:   #6b3fa0;
+      --purple-light: #9b6fd0;
+      --gold:         #c9a227;
+      --gold-light:   #e8c84a;
+      --cream:        #f0e6d3;
+      --cream-dark:   #c8b89a;
+      --nav-height:   70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--teal-deep);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 10%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 85%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 5%  30%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 55%, var(--cream) 0%, transparent 100%),
+        radial-gradient(2px 2px at 85% 15%, var(--gold-light) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(13, 47, 63, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 5rem) 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.8rem, 2vw, 1.1rem);
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    .about-card {
+      background: rgba(26, 74, 92, 0.4);
+      border: 2px solid rgba(201, 162, 39, 0.3);
+      border-radius: 4px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '✦';
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 1.5rem;
+      color: rgba(201, 162, 39, 0.2);
+    }
+
+    .about-card p {
+      color: var(--cream);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-card p:last-child { margin-bottom: 0; }
+    .about-card strong { color: var(--gold-light); font-weight: 700; }
+
+    .studio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--purple-light);
+      border: 1px solid var(--purple-mid);
+      padding: 0.4rem 0.8rem;
+      letter-spacing: 0.05em;
+      background: rgba(107, 63, 160, 0.15);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 2px solid var(--gold);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-meta {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cream-dark);
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-social {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-social:hover { color: var(--gold-light); }
+
+    .footer-policies {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-policy {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.35rem;
+      color: var(--cream-dark);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-policy:hover { opacity: 1; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.45rem; }
+      .about-card { padding: 1.5rem; }
+      .footer-socials { gap: 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lab.html">The Lab</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrap">
+
+    <h1 class="section-title">About Us</h1>
+
+    <div class="about-card">
+      <p>Retro Arcane was born the way the best things usually are. Someone had a vision, and someone else refused to let it stay a dream.</p>
+      <p><strong>Creative Director Zombri</strong> had spent years playing through demos and titles across every genre, finding herself inspired to create worlds of her own. <strong>Studio Director Rachel</strong> had the technical skills to make it happen. So in 2026, they built a studio.</p>
+      <p>Retro Arcane is a female-owned independent game studio based in Texas. We make games that feel like something. Cozy and whimsical. Games that make you think. Action-packed and intense. Whatever the concept, we bring the same thing to every project: craft, heart, and a genuine love for the experience of play.</p>
+      <p>Rounding out the creative team is <strong>Game Designer oddE</strong> — the connective tissue between art, design, and experience. Whether it's HUD, gameplay feel, or creative direction across both projects, oddE makes sure everything coheres.</p>
+      <p>We believe you don't have to have a Triple A budget to deliver a Triple A experience. You just have to care enough to get it right.</p>
+      <div class="studio-tags">
+        <span class="tag">Female Owned</span>
+        <span class="tag">Indie Studio</span>
+        <span class="tag">Est. 2026</span>
+        <span class="tag">Unreal Engine 5</span>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">RETRO ARCANE LLC</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+        <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
+        <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
+        <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
+      </div>
+      <div class="footer-policies">
+        <a href="ai-policy.html" class="footer-policy">AI Policy</a>
+        <span style="color: var(--cream-dark); opacity: 0.4; font-size: 0.35rem;">·</span>
+        <a href="privacy-policy.html" class="footer-policy">Privacy Policy</a>
+      </div>
+      <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
+      <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
+    </div>
+  </footer>
+
+</body>
+</html>
