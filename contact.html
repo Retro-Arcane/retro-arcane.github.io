@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Retro Arcane</title>
+  <link rel="icon" href="logo_.png" />
+
+  <meta property="og:title" content="Contact — Retro Arcane" />
+  <meta property="og:description" content="Get in touch with Retro Arcane LLC." />
+  <meta property="og:image" content="https://retroarcane.com/logo_.png" />
+  <meta property="og:url" content="https://retroarcane.com/contact.html" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal-deep:    #0d2f3f;
+      --teal-mid:     #1a4a5c;
+      --teal-bright:  #2a7a8c;
+      --purple-dark:  #3b2060;
+      --purple-mid:   #6b3fa0;
+      --purple-light: #9b6fd0;
+      --gold:         #c9a227;
+      --gold-light:   #e8c84a;
+      --cream:        #f0e6d3;
+      --cream-dark:   #c8b89a;
+      --nav-height:   70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--teal-deep);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 10%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 85%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 5%  30%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 55%, var(--cream) 0%, transparent 100%),
+        radial-gradient(2px 2px at 85% 15%, var(--gold-light) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0%   { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(13, 47, 63, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 5rem) 2rem 6rem;
+    }
+
+    .section-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.8rem, 2vw, 1.1rem);
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    .contact-intro {
+      font-size: 1.05rem;
+      color: var(--cream-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-email-line {
+      margin-bottom: 3rem;
+    }
+
+    .contact-email-line a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .contact-email-line a:hover { color: var(--gold-light); }
+
+    /* ── FORM ── */
+    .collab-heading {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+      margin-top: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .collab-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,162,39,0.4), transparent);
+    }
+
+    .collab-sub {
+      font-size: 0.95rem;
+      color: var(--cream-dark);
+      margin-bottom: 2rem;
+    }
+
+    .collab-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cream-dark);
+      letter-spacing: 0.08em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(26, 74, 92, 0.5);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .form-group select option {
+      background: var(--teal-deep);
+      color: var(--cream);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .form-submit {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--teal-deep);
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      padding: 1rem 2rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 2px solid var(--gold);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-meta {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cream-dark);
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-social {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-social:hover { color: var(--gold-light); }
+
+    .footer-policy {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.35rem;
+      color: var(--cream-dark);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-policy:hover { opacity: 1; }
+
+    .footer-policies {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.45rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-socials { gap: 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="lab.html">The Lab</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrap">
+
+    <h1 class="section-title">Contact</h1>
+
+    <p class="contact-intro">General inquiries, press, and hello:</p>
+    <div class="contact-email-line">
+      <a href="mailto:hello@retroarcane.com">hello@retroarcane.com</a>
+    </div>
+
+    <div class="collab-heading">Collaboration Inquiries</div>
+    <p class="collab-sub">Working on something and think we might be a fit? Tell us about it. We read everything.</p>
+
+    <form
+      class="collab-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <!-- Replace YOUR_FORM_ID with your Formspree endpoint once set up -->
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="Rachel Clark" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="hello@studio.com" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="studio">Studio or Project Name</label>
+        <input type="text" id="studio" name="studio" placeholder="Your studio or project" />
+      </div>
+
+      <div class="form-group">
+        <label for="type">Type of Collaboration</label>
+        <select id="type" name="type" required>
+          <option value="" disabled selected>Select one</option>
+          <option value="co-development">Co-development</option>
+          <option value="music-audio">Music / Audio</option>
+          <option value="art-animation">Art / Animation</option>
+          <option value="writing-narrative">Writing / Narrative</option>
+          <option value="publishing">Publishing</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell Us About It</label>
+        <textarea id="message" name="message" required placeholder="What are you building, and how do you see us fitting in?"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">▶ Send Inquiry</button>
+
+    </form>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">RETRO ARCANE LLC</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+      </div>
+      <div class="footer-policies">
+        <a href="ai-policy.html" class="footer-policy">AI Policy</a>
+        <span style="color: var(--cream-dark); opacity: 0.4; font-size: 0.35rem;">·</span>
+        <a href="privacy-policy.html" class="footer-policy">Privacy Policy</a>
+      </div>
+      <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
+      <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
+    </div>
+  </footer>
+
+</body>
+</html>

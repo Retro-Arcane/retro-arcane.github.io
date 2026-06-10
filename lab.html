@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Lab — Retro Arcane</title>
+  <link rel="icon" href="logo_.png" />
+
+  <meta property="og:title" content="The Lab — Retro Arcane" />
+  <meta property="og:description" content="Games are being made. We can't talk about it yet." />
+  <meta property="og:image" content="https://retroarcane.com/logo_.png" />
+  <meta property="og:url" content="https://retroarcane.com/lab.html" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal-deep:    #0d2f3f;
+      --teal-mid:     #1a4a5c;
+      --teal-bright:  #2a7a8c;
+      --purple-dark:  #3b2060;
+      --purple-mid:   #6b3fa0;
+      --purple-light: #9b6fd0;
+      --gold:         #c9a227;
+      --gold-light:   #e8c84a;
+      --orange:       #d4621a;
+      --cream:        #f0e6d3;
+      --cream-dark:   #c8b89a;
+      --white:        #ffffff;
+      --nav-height:   70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--teal-deep);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 10%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 85%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 5%  30%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 55%, var(--cream) 0%, transparent 100%),
+        radial-gradient(2px 2px at 85% 15%, var(--gold-light) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0%   { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(13, 47, 63, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    /* ── MAIN LAYOUT ── */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ── LOCK ICON ── */
+    .lock-icon {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      animation: floatLock 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 16px rgba(201, 162, 39, 0.4));
+    }
+
+    @keyframes floatLock {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* ── HEADING ── */
+    .lab-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+      line-height: 1.8;
+    }
+
+    /* ── DEADPAN MESSAGE CARD ── */
+    .lab-card {
+      background: rgba(26, 74, 92, 0.4);
+      border: 2px solid rgba(201, 162, 39, 0.3);
+      border-radius: 4px;
+      padding: 2.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .lab-card::before {
+      content: '✦';
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-size: 1.5rem;
+      color: rgba(201, 162, 39, 0.15);
+    }
+
+    .lab-card p {
+      font-size: 1.05rem;
+      color: var(--cream-dark);
+      margin-bottom: 1rem;
+    }
+
+    .lab-card p:last-child { margin-bottom: 0; }
+
+    .lab-card strong {
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    /* ── PIXEL DIVIDER ── */
+    .pixel-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem auto;
+      width: fit-content;
+    }
+
+    .pixel-divider span { font-size: 1.2rem; color: var(--gold); }
+
+    .pixel-divider::before,
+    .pixel-divider::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .pixel-divider::after {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    /* ── STATUS ROW ── */
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-top: 2rem;
+    }
+
+    .status-dot {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 2px solid var(--gold);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-meta {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cream-dark);
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .footer-social {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-social:hover { color: var(--gold-light); }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.45rem; }
+      .lab-card { padding: 1.5rem; }
+      .footer-socials { gap: 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="lab.html" class="active">The Lab</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="page-wrap">
+
+    <div class="lock-icon">🔒</div>
+
+    <h1 class="lab-title">THE LAB</h1>
+
+    <div class="pixel-divider"><span>✦</span></div>
+
+    <div class="lab-card">
+      <p><strong>Yes, games are being made.</strong></p>
+      <p>No, we cannot tell you what they are yet.</p>
+      <p>This is not a malfunction. This is a studio with two projects in active development and a very specific content strategy.</p>
+      <p>Check back around Week 8. You'll know when it's time because we will tell you.</p>
+    </div>
+
+    <div class="status-row">
+      <span class="status-dot"></span>
+      PROJECTS IN DEVELOPMENT · DETAILS INCOMING
+    </div>
+
+    <div id="countdown" style="margin-top: 2.5rem; font-family: 'Press Start 2P', monospace; font-size: 0.5rem; color: var(--cream-dark); letter-spacing: 0.08em; line-height: 2.4;"></div>
+
+    <script>
+      function updateCountdown() {
+        const target = new Date('2026-08-08T00:00:00-05:00');
+        const now = new Date();
+        const diff = target - now;
+
+        if (diff <= 0) {
+          document.getElementById('countdown').innerHTML = '★ &nbsp; WE ARE LIVE &nbsp; ★';
+          return;
+        }
+
+        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown').innerHTML =
+          days + ' days &nbsp; ' + hours + ' hrs &nbsp; ' + minutes + ' min &nbsp; ' + seconds + ' sec';
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">RETRO ARCANE LLC</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+      </div>
+      <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
+      <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
+    </div>
+  </footer>
+
+</body>
+</html>
