@@ -19,16 +19,11 @@
     :root {
       --teal-deep:    #0d2f3f;
       --teal-mid:     #1a4a5c;
-      --teal-bright:  #2a7a8c;
-      --purple-dark:  #3b2060;
-      --purple-mid:   #6b3fa0;
       --purple-light: #9b6fd0;
       --gold:         #c9a227;
       --gold-light:   #e8c84a;
-      --orange:       #d4621a;
       --cream:        #f0e6d3;
       --cream-dark:   #c8b89a;
-      --white:        #ffffff;
       --nav-height:   70px;
     }
 
@@ -95,11 +90,7 @@
       line-height: 1.4;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
 
     .nav-links a {
       font-family: 'Press Start 2P', monospace;
@@ -123,24 +114,20 @@
 
     .nav-links a:hover { color: var(--gold); }
     .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
 
-    section {
+    /* ── HERO ── */
+    #hero {
       position: relative;
       z-index: 1;
-      padding: 6rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    #hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: calc(var(--nav-height) + 4rem);
-      max-width: 100%;
+      padding: calc(var(--nav-height) + 4rem) 2rem 4rem;
     }
 
     .hero-logo {
@@ -205,189 +192,7 @@
       text-transform: uppercase;
     }
 
-    .section-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: clamp(0.8rem, 2vw, 1.1rem);
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(to right, var(--gold), transparent);
-    }
-
-    #about { border-top: 1px solid rgba(201, 162, 39, 0.2); }
-
-    .about-card {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px solid rgba(201, 162, 39, 0.3);
-      border-radius: 4px;
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-card::before {
-      content: '✦';
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-      font-size: 1.5rem;
-      color: rgba(201, 162, 39, 0.2);
-    }
-
-    .about-card p {
-      color: var(--cream);
-      font-size: 1.05rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-card p:last-child { margin-bottom: 0; }
-
-    .about-card strong { color: var(--gold-light); font-weight: 700; }
-
-    .studio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 2rem;
-    }
-
-    .tag {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.45rem;
-      color: var(--purple-light);
-      border: 1px solid var(--purple-mid);
-      padding: 0.4rem 0.8rem;
-      letter-spacing: 0.05em;
-      background: rgba(107, 63, 160, 0.15);
-    }
-
-    #games { border-top: 1px solid rgba(201, 162, 39, 0.2); }
-
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .game-card {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px solid rgba(107, 63, 160, 0.5);
-      padding: 2rem;
-      position: relative;
-      transition: border-color 0.2s, transform 0.2s;
-      cursor: default;
-    }
-
-    .game-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-    }
-
-    .game-card-status {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .status-dot {
-      width: 6px; height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.3; }
-    }
-
-    .game-card-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.7rem;
-      color: var(--cream);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .game-card-genre {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--purple-light);
-      margin-bottom: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    .game-card p { font-size: 0.9rem; color: var(--cream-dark); }
-
-    .card-link {
-      display: inline-block;
-      margin-top: 1.25rem;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.45rem;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-
-    .card-link:hover { color: var(--gold-light); }
-
-    .pipeline-card {
-      border: 2px dashed rgba(107, 63, 160, 0.3);
-      background: rgba(13, 47, 63, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 200px;
-    }
-
-    .pipeline-card .game-card-title { color: rgba(240, 230, 211, 0.4); font-size: 0.55rem; }
-    .pipeline-card p { color: rgba(200, 184, 154, 0.4); font-size: 0.8rem; }
-
-    #contact {
-      border-top: 1px solid rgba(201, 162, 39, 0.2);
-      text-align: center;
-    }
-
-    .contact-text {
-      font-size: 1.05rem;
-      color: var(--cream-dark);
-      max-width: 520px;
-      margin: 0 auto 2rem;
-    }
-
-    .contact-email {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.6rem;
-      color: var(--gold);
-      text-decoration: none;
-      border: 2px solid var(--gold);
-      padding: 1rem 2rem;
-      display: inline-block;
-      letter-spacing: 0.05em;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .contact-email:hover {
-      background: var(--gold);
-      color: var(--teal-deep);
-    }
-
+    /* ── FOOTER ── */
     footer {
       position: relative;
       z-index: 1;
@@ -439,6 +244,14 @@
 
     .footer-social:hover { color: var(--gold-light); }
 
+    .footer-policies {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .footer-policy {
       font-family: 'Press Start 2P', monospace;
       font-size: 0.35rem;
@@ -451,31 +264,10 @@
 
     .footer-policy:hover { opacity: 1; }
 
-    .footer-policies {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .sparkle {
-      display: inline-block;
-      color: var(--gold);
-      animation: spin 3s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
     @media (max-width: 600px) {
       nav { padding: 0 1.25rem; }
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 0.45rem; }
-      section { padding: 4rem 1.25rem; }
-      .about-card { padding: 1.5rem; }
       .footer-socials { gap: 1.25rem; }
     }
   </style>
@@ -484,10 +276,11 @@
 <body>
 
   <nav>
-    <a href="#hero" class="nav-logo">RETRO<br>ARCANE</a>
+    <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="lab.html">The Lab</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -500,66 +293,6 @@
     <p class="hero-sub">Independent Game Studio &nbsp;</p>
   </section>
 
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-    <div class="about-card">
-      <p>
-        Retro Arcane was born the way the best things usually are. Someone had a vision, and someone else refused to let it stay a dream.
-      </p>
-      <p>
-        <strong>Creative Director Zombri</strong> had spent years playing through demos and titles across every genre, finding herself inspired to create worlds of her own. <strong>Studio Director Rachel</strong> had the technical skills to make it happen. So in 2026, they built a studio.
-      </p>
-      <p>
-        Retro Arcane is a female-owned independent game studio based in Texas. We make games that feel like something. Cozy and whimsical. Games that make you think. Action-packed and intense. Whatever the concept, we bring the same thing to every project: craft, heart, and a genuine love for the experience of play.
-      </p>
-      <p>
-        Rounding out the creative team is <strong>Game Designer oddE</strong> — the connective tissue between art, design, and experience. Whether it's HUD, gameplay feel, or creative direction across both projects, oddE makes sure everything coheres.
-      </p>
-      <p>
-        We believe you don't have to have a Triple A budget to deliver a Triple A experience. You just have to care enough to get it right.
-      </p>
-      <div class="studio-tags">
-        <span class="tag">Female Owned</span>
-        <span class="tag">Indie Studio</span>
-        <span class="tag">Est. 2026</span>
-        <span class="tag">Unreal Engine 5</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="games">
-    <h2 class="section-title">Games</h2>
-    <div class="games-grid">
-
-      <div class="game-card">
-        <div class="game-card-status">
-          <span class="status-dot"></span>
-          In Development
-        </div>
-        <h3 class="game-card-title">PROJECT:<br>Ghoulish Gardens</h3>
-        <p class="game-card-genre">Cozy Survival · Necro-Management Sim</p>
-        <p>Tend a graveyard, raise the dead, and face what comes in winter. A feminine, whimsical take on necromancy — dark themes made cozy.</p>
-      </div>
-
-      <div class="game-card">
-        <div class="game-card-status">
-          <span class="status-dot"></span>
-          In Development
-        </div>
-        <h3 class="game-card-title">PROJECT:<br>Ocean Black - The Land of Ten Dawns</h3>
-        <p class="game-card-genre">Action-Adventure · Narrative RPG</p>
-        <p>Sail a moonlit alien sea, forge bonds between three unlikely species, and stop a kaiju war before it ends a civilization. LOTR meets the open ocean — on a world where humans became gods.</p>
-        <a href="https://www.youtube.com/@oceanblacktv5338" target="_blank" class="card-link">▶ Explore the World</a>
-      </div>
-
-      <div class="game-card pipeline-card">
-        <h3 class="game-card-title">More games<br>coming soon</h3>
-        <p>We are just getting started.</p>
-      </div>
-
-    </div>
-  </section>
-
   <footer>
     <div class="footer-inner">
       <p class="footer-name">RETRO ARCANE LLC</p>
@@ -569,7 +302,7 @@
         <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
         <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
         <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
-    </div>
+      </div>
       <div class="footer-policies">
         <a href="ai-policy.html" class="footer-policy">AI Policy</a>
         <span style="color: var(--cream-dark); opacity: 0.4; font-size: 0.35rem;">·</span>
@@ -577,7 +310,6 @@
       </div>
       <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
       <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
-      
     </div>
   </footer>
 
