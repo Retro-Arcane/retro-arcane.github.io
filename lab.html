@@ -343,23 +343,12 @@
     <div id="countdown" style="margin-top: 2.5rem; font-family: 'Press Start 2P', monospace; font-size: 0.5rem; color: var(--cream-dark); letter-spacing: 0.08em; line-height: 2.4;"></div>
 
     <script>
-      function updateCountdown() {
-        const target = new Date('2026-08-08T00:00:00-05:00');
-        const now = new Date();
-        const diff = target - now;
-
-        if (diff <= 0) {
-          document.getElementById('countdown').innerHTML = '★ &nbsp; WE ARE LIVE &nbsp; ★';
-          return;
-        }
-
-        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById('countdown').innerHTML =
-          days + ' days &nbsp; ' + hours + ' hrs &nbsp; ' + minutes + ' min &nbsp; ' + seconds + ' sec';
+      (function(d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; 
+          if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }
+           (document, "script", "tickcounter-sdk"));
+    </script>
+    <a data-type="countdown" data-id="10555891" class="tickcounter" style="display:block; left:0; width:100%; height:0; position:relative; padding-bottom:25%; 
+          margin:0 auto;" title="My countdown" href="//www.tickcounter.com/">The Lab Opens in</a>
       }
 
       updateCountdown();
@@ -373,9 +362,12 @@
     <div class="footer-inner">
       <p class="footer-name">RETRO ARCANE LLC</p>
       <div class="footer-socials">
-        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
-        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
-      </div>
+  <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+  <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+  <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
+  <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
+  <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
+</div>
       <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
       <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
     </div>
