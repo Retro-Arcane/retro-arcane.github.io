@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Retro Arcane</title>
+  <link rel="icon" href="logo_.png" />
+
+  <meta property="og:title" content="Community — Retro Arcane" />
+  <meta property="og:description" content="Join the Retro Arcane community. Support us on Patreon, hang out on Discord, and follow the magic." />
+  <meta property="og:image" content="https://retroarcane.com/logo_.png" />
+  <meta property="og:url" content="https://retroarcane.com/community.html" />
+  <meta property="og:type" content="website" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --teal-deep:    #0d2f3f;
+      --teal-mid:     #1a4a5c;
+      --purple-light: #9b6fd0;
+      --gold:         #c9a227;
+      --gold-light:   #e8c84a;
+      --cream:        #f0e6d3;
+      --cream-dark:   #c8b89a;
+      --nav-height:   70px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--teal-deep);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 10% 15%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 40%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 10%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 60%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 70%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 85%, var(--cream) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, var(--purple-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 5%  30%, var(--gold-light) 0%, transparent 100%),
+        radial-gradient(2px 2px at 45% 55%, var(--cream) 0%, transparent 100%),
+        radial-gradient(2px 2px at 85% 15%, var(--gold-light) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0%   { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(13, 47, 63, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--cream);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      position: relative;
+      z-index: 1;
+      padding: calc(var(--nav-height) + 4rem) 2rem 2rem;
+      text-align: center;
+    }
+
+    .page-eyebrow {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      color: var(--purple-light);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1rem, 3vw, 1.6rem);
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+      margin-bottom: 1.25rem;
+    }
+
+    .page-description {
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--cream-dark);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 600;
+    }
+
+    .pixel-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      width: fit-content;
+    }
+
+    .pixel-divider span { font-size: 1.2rem; color: var(--gold); }
+
+    .pixel-divider::before,
+    .pixel-divider::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold));
+    }
+
+    .pixel-divider::after {
+      background: linear-gradient(to left, transparent, var(--gold));
+    }
+
+    /* ── CARDS ── */
+    .community-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    .community-card {
+      background: rgba(26, 74, 92, 0.45);
+      border: 1px solid rgba(201, 162, 39, 0.25);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .community-card:hover {
+      border-color: rgba(201, 162, 39, 0.6);
+      transform: translateY(-4px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .card-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .card-description {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: var(--cream-dark);
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .card-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      letter-spacing: 0.08em;
+      color: var(--teal-deep);
+      background: var(--gold);
+      border: none;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .card-btn:hover {
+      background: var(--gold-light);
+      transform: scale(1.04);
+    }
+
+    .community-grid--stacked {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .community-grid--stacked .community-card:first-child {
+      max-width: 600px;
+      width: 100%;
+      align-self: center;
+    }
+
+    .community-grid--stacked .bottom-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 600px;
+      width: 100%;
+      align-self: center;
+    }
+
+
+    .community-card.coming-soon {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .coming-soon-badge {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.38rem;
+      color: var(--purple-light);
+      letter-spacing: 0.1em;
+      border: 1px solid var(--purple-light);
+      border-radius: 3px;
+      padding: 0.3rem 0.6rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 2px solid var(--gold);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-meta {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cream-dark);
+      letter-spacing: 0.05em;
+      opacity: 0.6;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-social {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-social:hover { color: var(--gold-light); }
+
+    .footer-policies {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-policy {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.35rem;
+      color: var(--cream-dark);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .footer-policy:hover { opacity: 1; }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.45rem; }
+      .footer-socials { gap: 1.25rem; }
+      .community-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lab.html">The Lab</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="community.html" class="active">Community</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-eyebrow">✦ gather round ✦</p>
+    <h1 class="page-title">THE COMMUNITY</h1>
+    <p class="page-description">This is where the magic happens outside the code. Pull up a chair.</p>
+    <div class="pixel-divider"><span>✦</span></div>
+  </div>
+
+  <div class="community-grid community-grid--stacked">
+
+    <!-- DISCORD -->
+    <div class="community-card">
+      <div class="card-icon">🏰</div>
+      <p class="card-label">DISCORD</p>
+      <p class="card-description">The main hangout. Chat, get dev updates, declare your game, and generally cause problems with us.</p>
+      <a href="https://discord.gg/g7P2QyAf" target="_blank" class="card-btn">JOIN THE SERVER</a>
+      <iframe
+        src="https://discord.com/widget?id=1503491636217384980&theme=dark"
+        width="100%"
+        height="400"
+        allowtransparency="true"
+        frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        style="border: 1px solid rgba(201, 162, 39, 0.2); border-radius: 4px; margin-top: 0.5rem;">
+      </iframe>
+    </div>
+
+    <div class="bottom-row">
+
+    <!-- PATREON -->
+    <div class="community-card">
+      <div class="card-icon">✦</div>
+      <p class="card-label">PATREON</p>
+      <p class="card-description">Back the studio directly. Get early access, exclusive content, discounts, and your name in the credits.</p>
+      <a href="https://www.patreon.com/RetroArcane" target="_blank" class="card-btn">SUPPORT US</a>
+    </div>
+
+    <!-- CROWDFUNDING — coming soon -->
+    <div class="community-card coming-soon">
+      <div class="card-icon">🎮</div>
+      <p class="card-label">CROWDFUNDING</p>
+      <p class="card-description">A bigger way to back the games. Coming when the time is right.</p>
+      <span class="coming-soon-badge">COMING SOON</span>
+    </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-name">RETRO ARCANE LLC</p>
+      <div class="footer-socials">
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+        <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
+        <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
+        <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
+        <a href="https://www.patreon.com/RetroArcane" target="_blank" class="footer-social">✦ Patreon</a>
+      </div>
+      <div class="footer-policies">
+        <a href="ai-policy.html" class="footer-policy">AI Policy</a>
+        <span style="color: var(--cream-dark); opacity: 0.4; font-size: 0.35rem;">·</span>
+        <a href="privacy-policy.html" class="footer-policy">Privacy Policy</a>
+      </div>
+      <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
+      <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
+    </div>
+  </footer>
+
+</body>
+</html>
