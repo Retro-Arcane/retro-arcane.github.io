@@ -181,11 +181,12 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      max-width: 900px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 0 2rem 6rem;
+      padding: 0 2rem 4rem;
+      align-items: start;
     }
 
     .community-card {
@@ -247,40 +248,29 @@
       transform: scale(1.04);
     }
 
-    .community-grid--stacked {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .community-grid--stacked .community-card:first-child {
-      max-width: 600px;
-      width: 100%;
-      align-self: center;
-    }
-
-    .community-grid--stacked .bottom-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      max-width: 600px;
-      width: 100%;
-      align-self: center;
-    }
-
-
+    /* coming soon — spans both columns, compact */
     .community-card.coming-soon {
-      opacity: 0.55;
+      grid-column: 1 / -1;
+      max-width: 360px;
+      margin: 0 auto;
+      width: 100%;
+      opacity: 0.5;
       pointer-events: none;
+      padding: 1.25rem 1.5rem;
+      gap: 0.6rem;
     }
+
+    .community-card.coming-soon .card-icon { font-size: 1.2rem; }
+    .community-card.coming-soon .card-description { font-size: 0.8rem; }
 
     .coming-soon-badge {
       font-family: 'Press Start 2P', monospace;
-      font-size: 0.38rem;
+      font-size: 0.35rem;
       color: var(--purple-light);
       letter-spacing: 0.1em;
       border: 1px solid var(--purple-light);
       border-radius: 3px;
-      padding: 0.3rem 0.6rem;
+      padding: 0.25rem 0.5rem;
     }
 
     /* ── FOOTER ── */
@@ -360,7 +350,7 @@
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 0.45rem; }
       .footer-socials { gap: 1.25rem; }
-      .community-grid { grid-template-columns: 1fr; }
+      .community-grid { grid-template-columns: 1fr; max-width: 400px; }
     }
   </style>
 </head>
@@ -385,7 +375,7 @@
     <div class="pixel-divider"><span>✦</span></div>
   </div>
 
-  <div class="community-grid community-grid--stacked">
+  <div class="community-grid">
 
     <!-- DISCORD -->
     <div class="community-card">
@@ -393,18 +383,7 @@
       <p class="card-label">DISCORD</p>
       <p class="card-description">The main hangout. Chat, get dev updates, declare your game, and generally cause problems with us.</p>
       <a href="https://discord.gg/g7P2QyAf" target="_blank" class="card-btn">JOIN THE SERVER</a>
-      <iframe
-        src="https://discord.com/widget?id=1503491636217384980&theme=dark"
-        width="100%"
-        height="400"
-        allowtransparency="true"
-        frameborder="0"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        style="border: 1px solid rgba(201, 162, 39, 0.2); border-radius: 4px; margin-top: 0.5rem;">
-      </iframe>
     </div>
-
-    <div class="bottom-row">
 
     <!-- PATREON -->
     <div class="community-card">
@@ -417,11 +396,8 @@
     <!-- CROWDFUNDING — coming soon -->
     <div class="community-card coming-soon">
       <div class="card-icon">🎮</div>
-      <p class="card-label">CROWDFUNDING</p>
       <p class="card-description">A bigger way to back the games. Coming when the time is right.</p>
       <span class="coming-soon-badge">COMING SOON</span>
-    </div>
-
     </div>
 
   </div>

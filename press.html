@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Press — Retro Arcane</title>
   <link rel="icon" href="logo_.png" />
   <meta property="og:title" content="Press — Retro Arcane" />
@@ -12,457 +10,92 @@
   <meta property="og:url" content="https://retroarcane.com/press.html" />
   <meta property="og:type" content="website" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <style>
-    :root {
-      --teal-deep:    #0d2f3f;
-      --teal-mid:     #1a4a5c;
-      --purple-mid:   #6b3fa0;
-      --purple-light: #9b6fd0;
-      --gold:         #c9a227;
-      --gold-light:   #e8c84a;
-      --cream:        #f0e6d3;
-      --cream-dark:   #c8b89a;
-      --nav-height:   70px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--teal-deep);
-      color: var(--cream);
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 10% 15%, var(--cream) 0%, transparent 100%),
-        radial-gradient(1px 1px at 25% 40%, var(--gold-light) 0%, transparent 100%),
-        radial-gradient(1px 1px at 40% 10%, var(--cream) 0%, transparent 100%),
-        radial-gradient(1px 1px at 55% 60%, var(--purple-light) 0%, transparent 100%),
-        radial-gradient(1px 1px at 70% 25%, var(--cream) 0%, transparent 100%),
-        radial-gradient(1px 1px at 80% 50%, var(--gold-light) 0%, transparent 100%),
-        radial-gradient(1px 1px at 90% 80%, var(--cream) 0%, transparent 100%),
-        radial-gradient(2px 2px at 5%  30%, var(--gold-light) 0%, transparent 100%),
-        radial-gradient(2px 2px at 45% 55%, var(--cream) 0%, transparent 100%),
-        radial-gradient(2px 2px at 85% 15%, var(--gold-light) 0%, transparent 100%);
-      pointer-events: none;
-      z-index: 0;
-      animation: twinkle 6s ease-in-out infinite alternate;
-    }
-
-    @keyframes twinkle { 0% { opacity: 0.6; } 100% { opacity: 1; } }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: var(--nav-height);
-      background: rgba(13, 47, 63, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      z-index: 100;
-    }
-
-    .nav-logo {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.75rem;
-      color: var(--gold);
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      line-height: 1.4;
-    }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-
-    .nav-links a {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.55rem;
-      color: var(--cream);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links a:hover::after { transform: scaleX(1); }
-
-    .page-wrap {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: calc(var(--nav-height) + 5rem) 2rem 6rem;
-    }
-
-    .page-eyebrow {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--purple-light);
-      letter-spacing: 0.12em;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: clamp(0.9rem, 2.5vw, 1.3rem);
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
-      line-height: 1.8;
-    }
-
-    .page-sub {
-      font-size: 1.05rem;
-      color: var(--cream-dark);
-      margin-bottom: 3.5rem;
-      max-width: 600px;
-    }
-
-    .section-heading {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.65rem;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .section-heading::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, rgba(201,162,39,0.4), transparent);
-    }
-
-    /* ── FACT SHEET ── */
-    .fact-card {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px solid rgba(201, 162, 39, 0.3);
-      border-radius: 4px;
-      padding: 2rem 2.5rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .fact-card::before {
-      content: '✦';
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-      font-size: 1.5rem;
-      color: rgba(201, 162, 39, 0.12);
-    }
-
-    .fact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem 2rem;
-    }
-
-    .fact-item {}
-
-    .fact-label {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.38rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.3rem;
-    }
-
-    .fact-value {
-      font-size: 0.95rem;
-      color: var(--cream-dark);
-    }
-
-    /* ── STUDIO BIO ── */
-    .bio-card {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px solid rgba(201, 162, 39, 0.3);
-      border-radius: 4px;
-      padding: 2rem 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .bio-card p {
-      font-size: 1rem;
-      color: var(--cream-dark);
-      margin-bottom: 1rem;
-    }
-
-    .bio-card p:last-child { margin-bottom: 0; }
-
-    /* ── GAME ENTRIES ── */
-    .game-entry {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px solid rgba(107, 63, 160, 0.4);
-      border-radius: 4px;
-      padding: 2rem 2.5rem;
-      margin-bottom: 1.5rem;
-      transition: border-color 0.2s;
-    }
-
-    .game-entry:hover { border-color: rgba(201, 162, 39, 0.4); }
-
-    .game-entry-title {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.65rem;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-      line-height: 1.7;
-    }
-
-    .game-entry-genre {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.38rem;
-      color: var(--purple-light);
-      margin-bottom: 1rem;
-      letter-spacing: 0.05em;
-    }
-
-    .game-entry p {
-      font-size: 0.95rem;
-      color: var(--cream-dark);
-      margin-bottom: 0.75rem;
-    }
-
-    .game-entry p:last-child { margin-bottom: 0; }
-
-    .game-entry-meta {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.35rem;
-      color: var(--cream-dark);
-      opacity: 0.6;
-      letter-spacing: 0.06em;
-      margin-top: 1rem;
-    }
-
-    /* ── ASSETS PLACEHOLDER ── */
-    .assets-card {
-      background: rgba(26, 74, 92, 0.4);
-      border: 2px dashed rgba(201, 162, 39, 0.25);
-      border-radius: 4px;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-
-    .assets-card p {
-      font-size: 0.95rem;
-      color: var(--cream-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .assets-card .assets-note {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.38rem;
-      color: var(--gold);
-      opacity: 0.7;
-      letter-spacing: 0.06em;
-    }
-
-    /* ── PRESS CONTACT ── */
-    .press-contact {
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .press-contact p {
-      font-size: 1rem;
-      color: var(--cream-dark);
-      margin-bottom: 1.25rem;
-    }
-
-    .press-email {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.55rem;
-      color: var(--gold);
-      text-decoration: none;
-      border: 2px solid var(--gold);
-      padding: 0.9rem 1.75rem;
-      display: inline-block;
-      letter-spacing: 0.05em;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .press-email:hover {
-      background: var(--gold);
-      color: var(--teal-deep);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 2px solid var(--gold);
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .footer-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-name {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.55rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-    }
-
-    .footer-meta {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--cream-dark);
-      letter-spacing: 0.05em;
-      opacity: 0.6;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .footer-social {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.4rem;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-
-    .footer-social:hover { color: var(--gold-light); }
-
-    .footer-policy {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.35rem;
-      color: var(--cream-dark);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .footer-policy:hover { opacity: 1; }
-
-    .footer-policies {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    @media (max-width: 600px) {
-      nav { padding: 0 1.25rem; }
-      .nav-links { gap: 1rem; }
-      .nav-links a { font-size: 0.45rem; }
-      .fact-grid { grid-template-columns: 1fr; }
-      .fact-card, .bio-card, .game-entry { padding: 1.5rem; }
-    }
+    :root{--teal-deep:#0d2f3f;--teal-mid:#1a4a5c;--purple-mid:#6b3fa0;--purple-light:#9b6fd0;--gold:#c9a227;--gold-light:#e8c84a;--cream:#f0e6d3;--cream-dark:#c8b89a;--nav-height:70px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+    body{background-color:var(--teal-deep);color:var(--cream);font-family:'Nunito',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(1px 1px at 10% 15%,var(--cream) 0%,transparent 100%),radial-gradient(1px 1px at 25% 40%,var(--gold-light) 0%,transparent 100%),radial-gradient(1px 1px at 40% 10%,var(--cream) 0%,transparent 100%),radial-gradient(1px 1px at 55% 60%,var(--purple-light) 0%,transparent 100%),radial-gradient(1px 1px at 70% 25%,var(--cream) 0%,transparent 100%),radial-gradient(1px 1px at 80% 50%,var(--gold-light) 0%,transparent 100%),radial-gradient(1px 1px at 90% 80%,var(--cream) 0%,transparent 100%),radial-gradient(2px 2px at 5% 30%,var(--gold-light) 0%,transparent 100%),radial-gradient(2px 2px at 45% 55%,var(--cream) 0%,transparent 100%),radial-gradient(2px 2px at 85% 15%,var(--gold-light) 0%,transparent 100%);pointer-events:none;z-index:0;animation:twinkle 6s ease-in-out infinite alternate;}
+    @keyframes twinkle{0%{opacity:0.6;}100%{opacity:1;}}
+    nav{position:fixed;top:0;left:0;right:0;height:var(--nav-height);background:rgba(13,47,63,0.92);backdrop-filter:blur(8px);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:100;}
+    .nav-logo{font-family:'Press Start 2P',monospace;font-size:0.75rem;color:var(--gold);letter-spacing:0.05em;text-decoration:none;line-height:1.4;}
+    .nav-links{display:flex;gap:2rem;list-style:none;}
+    .nav-links a{font-family:'Press Start 2P',monospace;font-size:0.55rem;color:var(--cream);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.2s;}
+    .nav-links a:hover{color:var(--gold);}.nav-links a:hover::after{transform:scaleX(1);}
+    .page-wrap{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:calc(var(--nav-height) + 5rem) 2rem 6rem;}
+    .page-eyebrow{font-family:'Press Start 2P',monospace;font-size:0.4rem;color:var(--purple-light);letter-spacing:0.12em;margin-bottom:1rem;}
+    h1{font-family:'Press Start 2P',monospace;font-size:clamp(0.9rem,2.5vw,1.3rem);color:var(--gold);letter-spacing:0.08em;margin-bottom:0.75rem;line-height:1.8;}
+    .page-sub{font-size:1.05rem;color:var(--cream-dark);margin-bottom:3.5rem;max-width:600px;}
+    .section-heading{font-family:'Press Start 2P',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.08em;margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem;}
+    .section-heading::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(201,162,39,0.4),transparent);}
+    .fact-card{background:rgba(26,74,92,0.4);border:2px solid rgba(201,162,39,0.3);border-radius:4px;padding:2rem 2.5rem;margin-bottom:2.5rem;position:relative;overflow:hidden;}
+    .fact-card::before{content:'✦';position:absolute;top:1rem;right:1.5rem;font-size:1.5rem;color:rgba(201,162,39,0.12);}
+    .fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem 2rem;}
+    .fact-label{font-family:'Press Start 2P',monospace;font-size:0.38rem;color:var(--gold);letter-spacing:0.1em;margin-bottom:0.3rem;}
+    .fact-value{font-size:0.95rem;color:var(--cream-dark);}
+    .bio-card{background:rgba(26,74,92,0.4);border:2px solid rgba(201,162,39,0.3);border-radius:4px;padding:2rem 2.5rem;margin-bottom:2.5rem;}
+    .bio-card p{font-size:1rem;color:var(--cream-dark);margin-bottom:1rem;}.bio-card p:last-child{margin-bottom:0;}
+    .game-entry{background:rgba(26,74,92,0.4);border:2px solid rgba(107,63,160,0.4);border-radius:4px;padding:2rem 2.5rem;margin-bottom:1.5rem;transition:border-color 0.2s;}
+    .game-entry:hover{border-color:rgba(201,162,39,0.4);}
+    .game-entry-title{font-family:'Press Start 2P',monospace;font-size:0.65rem;color:var(--cream);margin-bottom:0.5rem;line-height:1.7;}
+    .game-entry-genre{font-family:'Press Start 2P',monospace;font-size:0.38rem;color:var(--purple-light);margin-bottom:1rem;letter-spacing:0.05em;}
+    .game-entry p{font-size:0.95rem;color:var(--cream-dark);margin-bottom:0.75rem;}.game-entry p:last-child{margin-bottom:0;}
+    .game-entry-meta{font-family:'Press Start 2P',monospace;font-size:0.35rem;color:var(--cream-dark);opacity:0.6;letter-spacing:0.06em;margin-top:1rem;}
+    .assets-card{background:rgba(26,74,92,0.4);border:2px dashed rgba(201,162,39,0.25);border-radius:4px;padding:2.5rem;margin-bottom:2.5rem;text-align:center;}
+    .assets-card p{font-size:0.95rem;color:var(--cream-dark);margin-bottom:0.5rem;}
+    .assets-note{font-family:'Press Start 2P',monospace;font-size:0.38rem;color:var(--gold);opacity:0.7;letter-spacing:0.06em;}
+    .press-contact{text-align:center;padding:2rem;}
+    .press-contact p{font-size:1rem;color:var(--cream-dark);margin-bottom:1.25rem;}
+    .press-email{font-family:'Press Start 2P',monospace;font-size:0.55rem;color:var(--gold);text-decoration:none;border:2px solid var(--gold);padding:0.9rem 1.75rem;display:inline-block;letter-spacing:0.05em;transition:background 0.2s,color 0.2s;}
+    .press-email:hover{background:var(--gold);color:var(--teal-deep);}
+    footer{position:relative;z-index:1;border-top:2px solid var(--gold);padding:2rem;text-align:center;}
+    .footer-inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+    .footer-name{font-family:'Press Start 2P',monospace;font-size:0.55rem;color:var(--gold);letter-spacing:0.1em;}
+    .footer-meta{font-family:'Press Start 2P',monospace;font-size:0.4rem;color:var(--cream-dark);letter-spacing:0.05em;opacity:0.6;}
+    .footer-socials{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;justify-content:center;}
+    .footer-social{font-family:'Press Start 2P',monospace;font-size:0.4rem;color:var(--gold);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;}
+    .footer-social:hover{color:var(--gold-light);}
+    .footer-policies{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;justify-content:center;}
+    .footer-policy{font-family:'Press Start 2P',monospace;font-size:0.35rem;color:var(--cream-dark);text-decoration:none;letter-spacing:0.05em;opacity:0.7;transition:opacity 0.2s;}
+    .footer-policy:hover{opacity:1;}
+    @media(max-width:600px){nav{padding:0 1.25rem;}.nav-links{gap:1rem;}.nav-links a{font-size:0.45rem;}.fact-grid{grid-template-columns:1fr;}.fact-card,.bio-card,.game-entry{padding:1.5rem;}}
   </style>
 </head>
-
 <body>
-
   <nav>
     <a href="index.html" class="nav-logo">RETRO<br>ARCANE</a>
     <ul class="nav-links">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="lab.html">The Lab</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lab.html">The Lab</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="community.html">Community</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </nav>
-
   <main class="page-wrap">
-
     <p class="page-eyebrow">Media Resources</p>
     <h1>Press Kit</h1>
     <p class="page-sub">Everything you need to cover Retro Arcane. For assets not listed here or interview requests, reach out directly.</p>
-
-    <!-- FACT SHEET -->
     <div class="section-heading">Studio Facts</div>
     <div class="fact-card">
       <div class="fact-grid">
-        <div class="fact-item">
-          <p class="fact-label">Studio Name</p>
-          <p class="fact-value">Retro Arcane LLC</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Founded</p>
-          <p class="fact-value">2026</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Location</p>
-          <p class="fact-value">Dallas, Texas, USA</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Studio Type</p>
-          <p class="fact-value">Independent — Female-owned, Queer-owned</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Engine</p>
-          <p class="fact-value">Unreal Engine 5</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Active Projects</p>
-          <p class="fact-value">2 in development</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Website</p>
-          <p class="fact-value">retroarcane.com</p>
-        </div>
-        <div class="fact-item">
-          <p class="fact-label">Press Contact</p>
-          <p class="fact-value">hello@retroarcane.com</p>
-        </div>
+        <div class="fact-item"><p class="fact-label">Studio Name</p><p class="fact-value">Retro Arcane LLC</p></div>
+        <div class="fact-item"><p class="fact-label">Founded</p><p class="fact-value">2026</p></div>
+        <div class="fact-item"><p class="fact-label">Location</p><p class="fact-value">Dallas, Texas, USA</p></div>
+        <div class="fact-item"><p class="fact-label">Studio Type</p><p class="fact-value">Independent — Female-owned, Queer-owned</p></div>
+        <div class="fact-item"><p class="fact-label">Engine</p><p class="fact-value">Unreal Engine 5</p></div>
+        <div class="fact-item"><p class="fact-label">Active Projects</p><p class="fact-value">2 in development</p></div>
+        <div class="fact-item"><p class="fact-label">Website</p><p class="fact-value">retroarcane.com</p></div>
+        <div class="fact-item"><p class="fact-label">Press Contact</p><p class="fact-value">hello@retroarcane.com</p></div>
       </div>
     </div>
-
-    <!-- STUDIO BIO -->
     <div class="section-heading">Studio Bio</div>
     <div class="bio-card">
       <p>Retro Arcane LLC is a female-owned, queer-owned independent game studio based in Dallas, Texas. Founded in 2026 by Studio Director Rachel and Creative Director Zombri, the studio builds original IP across multiple genres — from cozy gothic life sims to epic space opera RPGs.</p>
       <p>The studio operates with a small, intentional team: a sole programmer and creative leads who believe craft, heart, and genuine love for the experience of play matter more than budget. Retro Arcane develops in Unreal Engine 5 using C++, with a commitment to handmade games built by real people.</p>
       <p>Both active projects — Ghoulish Gardens and Land of Ten Dawns — are currently in development, with community funding via Patreon launching in 2026.</p>
     </div>
-
-    <!-- GAMES IN DEVELOPMENT -->
     <div class="section-heading">Projects in Development</div>
-
     <div class="game-entry">
       <p class="game-entry-title">Ghoulish Gardens</p>
       <p class="game-entry-genre">Cozy Survival · Necro-Management Sim</p>
@@ -470,7 +103,6 @@
       <p>Developed solely by Retro Arcane LLC. Built in Unreal Engine 5.</p>
       <p class="game-entry-meta">Status: In Development · Engine: UE5 · Developer: Retro Arcane LLC</p>
     </div>
-
     <div class="game-entry">
       <p class="game-entry-title">Ocean Black: The Land of Ten Dawns</p>
       <p class="game-entry-genre">Action-Adventure · Narrative RPG</p>
@@ -478,42 +110,36 @@
       <p>Co-developed with Crowstorm Studios LLC. Built in Unreal Engine 5.</p>
       <p class="game-entry-meta">Status: In Development · Engine: UE5 · Co-developer: Crowstorm Studios LLC</p>
     </div>
-
-    <!-- ASSETS -->
     <div class="section-heading">Media Assets</div>
     <div class="assets-card">
       <p>Logo files, key art, and screenshots will be available here as development progresses.</p>
       <p class="assets-note">Asset pack coming — check back or email us directly for immediate needs.</p>
     </div>
-
-    <!-- PRESS CONTACT -->
     <div class="section-heading">Press Contact</div>
     <div class="press-contact">
       <p>Interview requests, review copies, and media inquiries:</p>
       <a href="mailto:hello@retroarcane.com" class="press-email">hello@retroarcane.com</a>
     </div>
-
   </main>
-
   <footer>
     <div class="footer-inner">
       <p class="footer-name">RETRO ARCANE LLC</p>
       <div class="footer-socials">
-  <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
-  <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
-  <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
-  <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
-  <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
-</div>
+        <a href="https://www.youtube.com/@RetroArcaneLLC" target="_blank" class="footer-social">▶ YouTube</a>
+        <a href="https://www.instagram.com/retroarcane/" target="_blank" class="footer-social">✦ Instagram</a>
+        <a href="https://www.tiktok.com/@retroarcane" target="_blank" class="footer-social">✦ TikTok</a>
+        <a href="https://x.com/RetroArcaneLLC" target="_blank" class="footer-social">✦ X</a>
+        <a href="https://www.threads.net/@retroarcane" target="_blank" class="footer-social">✦ Threads</a>
+        <a href="https://www.patreon.com/RetroArcane" target="_blank" class="footer-social">✦ Patreon</a>
+      </div>
       <div class="footer-policies">
         <a href="ai-policy.html" class="footer-policy">AI Policy</a>
-        <span style="color: var(--cream-dark); opacity: 0.4; font-size: 0.35rem;">·</span>
+        <span style="color:var(--cream-dark);opacity:0.4;font-size:0.35rem;">·</span>
         <a href="privacy-policy.html" class="footer-policy">Privacy Policy</a>
       </div>
       <p class="footer-meta">© 2026 Retro Arcane LLC · All Rights Reserved · USA</p>
       <p class="footer-meta">Female Owned · Independent · Made with ✦ magic</p>
     </div>
   </footer>
-
 </body>
 </html>
